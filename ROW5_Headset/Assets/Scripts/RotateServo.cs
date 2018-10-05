@@ -44,6 +44,12 @@ public class RotateServo : MonoBehaviour
 		
         float x_rotate = gameObject.transform.localEulerAngles.x;
 		float y_rotate = gameObject.transform.localEulerAngles.y;
+		if(x_rotate > 180){
+			x_rotate -= 360;
+		}
+		if(y_rotate > 180){
+			y_rotate -= 360;
+		}
 		
         string text = string.Format("X: {0:0.0} \nY: {1:0.0}", x_rotate, y_rotate);
         GUI.Label(rect, text, style);
