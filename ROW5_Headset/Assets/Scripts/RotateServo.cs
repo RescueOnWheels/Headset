@@ -42,15 +42,21 @@ public class RotateServo : MonoBehaviour
         style.fontSize = h * 4 / 100;
         style.normal.textColor = new Color(255, 0, 0, 255);
 		
+		// Get rotations
         float x_rotate = gameObject.transform.localEulerAngles.x;
 		float y_rotate = gameObject.transform.localEulerAngles.y;
+		float z_rotate = gameObject.transform.localEulerAngles.z;
+		
+		// Rotation mirror
 		if(x_rotate > 180){
 			x_rotate -= 360;
 		}
 		if(y_rotate > 180){
 			y_rotate -= 360;
 		}
-		
+		if(z_rotate > 180){
+			z_rotate -= 360;
+		}
         string text = string.Format("X: {0:0.0} \nY: {1:0.0}", x_rotate, y_rotate);
         GUI.Label(rect, text, style);
     }
