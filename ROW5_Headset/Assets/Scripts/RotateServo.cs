@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using SocketIO;
 
 using UnityEngine.UI;
 
@@ -18,7 +19,9 @@ public class RotateServo : MonoBehaviour
 
     const int initWidth = 2;
     const int initHeight = 2;
-
+	float x_rotate;
+	float y_rotate;
+	float z_rotate;
 
     public void Start()
     {
@@ -29,6 +32,21 @@ public class RotateServo : MonoBehaviour
     void Update()
     {
        
+		// Get rotations
+        x_rotate = gameObject.transform.localEulerAngles.x;
+		y_rotate = gameObject.transform.localEulerAngles.y;
+		z_rotate = gameObject.transform.localEulerAngles.z;
+		
+		// Rotation mirror
+		if(x_rotate > 180){
+			x_rotate -= 360;
+		}
+		if(y_rotate > 180){
+			y_rotate -= 360;
+		}
+		if(z_rotate > 180){
+			z_rotate -= 360;
+		}
     }
 
     void DrawRot()
@@ -42,21 +60,6 @@ public class RotateServo : MonoBehaviour
         style.fontSize = h * 4 / 100;
         style.normal.textColor = new Color(255, 0, 0, 255);
 		
-		// Get rotations
-        float x_rotate = gameObject.transform.localEulerAngles.x;
-		float y_rotate = gameObject.transform.localEulerAngles.y;
-		float z_rotate = gameObject.transform.localEulerAngles.z;
-		
-		// Rotation mirror
-		if(x_rotate > 180){
-			x_rotate -= 360;
-		}
-		if(y_rotate > 180){
-			y_rotate -= 360;
-		}
-		if(z_rotate > 180){
-			z_rotate -= 360;
-		}
         string text = string.Format("X: {0:0.0} \nY: {1:0.0}", x_rotate, y_rotate);
         GUI.Label(rect, text, style);
     }
