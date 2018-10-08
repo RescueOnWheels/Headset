@@ -41,8 +41,9 @@ namespace SocketIO
 	public class SocketIOComponent : MonoBehaviour
 	{
 		#region Public Properties
-
-		public string url = "ws://127.0.0.1:4567/socket.io/?EIO=4&transport=websocket";
+		public string ipaddress = "192.168.178.171";
+		public string port = 8080;
+		public string url = string.Format("ws://{0}:{1}/socket.io/?EIO=4&transport=websocket", ipaddress, port);
 		public bool autoConnect = true;
 		public int reconnectDelay = 5;
 		public float ackExpirationTime = 1800f;
@@ -102,7 +103,7 @@ namespace SocketIO
 			ws = new WebSocket(url);
 			ws.OnOpen += OnOpen;
 			ws.OnMessage += OnMessage;
-			ws.OnError += OnError;
+			//ws.OnError += OnError;
 			ws.OnClose += OnClose;
 			wsConnected = false;
 
