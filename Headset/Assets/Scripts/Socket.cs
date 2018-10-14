@@ -10,7 +10,7 @@ public class Socket : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		socket = IO.Socket("http://192.168.1.6:3000");
+		socket = IO.Socket("http://192.168.43.85:3000");
 
 		socket.On("connect", () =>
 		{
