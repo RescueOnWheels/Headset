@@ -26,9 +26,9 @@ public class Socket : MonoBehaviour {
 
 		double vertical = x;
 		if(x < 180) {
-			vertical = (-1 * (x / 45));
+			vertical = (-1 * (x / 18));
 		} else {
-			vertical = (1-((x-315) / 45));
+			vertical = (1-((x-270) / 90));
 		}
 
 		vertical = Math.Round(vertical, 2);
@@ -37,9 +37,9 @@ public class Socket : MonoBehaviour {
 
 		double horizontal = y;
 		if(y < 180) {
-			horizontal = (y / 45);
+			horizontal = (y / 90);
 		} else {
-			horizontal = (-1 - (-1 * ((y-315) / 45)));
+			horizontal = (-1 - (-1 * ((y-270) / 90)));
 		}
 
 		horizontal = Math.Round(horizontal, 2);
