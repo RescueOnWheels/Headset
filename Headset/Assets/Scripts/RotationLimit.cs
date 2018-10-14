@@ -14,21 +14,22 @@ public class RotationLimit : MonoBehaviour {
 	void Update () {
 		Quaternion target = camera.transform.rotation;
 
-		// Limit the X-axis between -45 and 45.
+		// Vertical limit
 		var x = target.eulerAngles.x;
 		if(target.eulerAngles.x < 180) {
-			x = Mathf.Clamp(x, 0, 45);
+			x = Mathf.Clamp(x, 0, 18);
 		}
 		else {
-			x = Mathf.Clamp(x, 315, 360);
+			x = Mathf.Clamp(x, 270, 360);
 		}
 		
+		// Horizontal limit
 		var y = target.eulerAngles.y;
 		if(y < 180) {
-			y = Mathf.Clamp(y, 0, 45);
+			y = Mathf.Clamp(y, 0, 90);
 		}
 		else {
-			y = Mathf.Clamp(y, 315, 360);
+			y = Mathf.Clamp(y, 270, 360);
 		}
 
 		// Disable rotation on the Z-axis
