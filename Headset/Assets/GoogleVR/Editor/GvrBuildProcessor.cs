@@ -122,7 +122,7 @@ class GvrBuildProcessor : IPreprocessBuild, IPostprocessBuild {
 
   // 'Player Settings > Virtual Reality SDKs' includes any VR SDK other than 'None'?
   private bool IsSDKOtherThanNoneIncluded() {
-    bool containsNone = XRSettings.supportedDevices.Contains(GvrSettings.VR_SDK_NONE);
+    bool containsNone = false;// XRSettings.supportedDevices.Contains(GvrSettings.VR_SDK_NONE);
     int numSdks = XRSettings.supportedDevices.Length;
     return containsNone ? numSdks > 1 : numSdks > 0;
   }
