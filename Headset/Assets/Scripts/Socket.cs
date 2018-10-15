@@ -6,11 +6,13 @@ using Quobject.SocketIoClientDotNet.Client;
 using UnityEngine;
 
 public class Socket : MonoBehaviour {
+	public string server;
+
 	Quobject.SocketIoClientDotNet.Client.Socket socket = null;
 	
 	// Use this for initialization
 	void Start () {
-		socket = IO.Socket("http://192.168.43.86:3000");
+		socket = IO.Socket(server);
 
 		socket.On("connect", () =>
 		{
@@ -18,6 +20,13 @@ public class Socket : MonoBehaviour {
 		});
 	}
 	
+	void LateUpdate() {
+		socket.On("disconnect", () => {
+			Debug.Log("Disconnected from Larynx.");
+			socket = IO.Socket(server);
+		});
+	}
+
 	// Update is called once per frame
 	void Update () {
 		double x = gameObject.transform.eulerAngles.x;
@@ -46,7 +55,7 @@ public class Socket : MonoBehaviour {
 		horizontal = Math.Min(horizontal, 1.00);
 		horizontal = Math.Max(horizontal, -1.00);
 
-		var data = "{\"horizontal\": " + (-1 * horizontal) + ", \"vertical\": " + vertical + "}";
+		var data = "{\"horizontal\": " + (horizontal) + ", \"vertical\": " + vertical + "}";
 
 		Debug.Log(data);
 
