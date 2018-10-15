@@ -10,7 +10,7 @@ public class Socket : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		socket = IO.Socket("http://192.168.43.85:3000");
+		socket = IO.Socket("http://192.168.43.86:3000");
 
 		socket.On("connect", () =>
 		{
@@ -46,10 +46,7 @@ public class Socket : MonoBehaviour {
 		horizontal = Math.Min(horizontal, 1.00);
 		horizontal = Math.Max(horizontal, -1.00);
 
-		var data = new {
-			horizontal,
-			vertical
-		};
+		var data = "{\"horizontal\": " + (-1 * horizontal) + ", \"vertical\": " + vertical + "}";
 
 		Debug.Log(data);
 
