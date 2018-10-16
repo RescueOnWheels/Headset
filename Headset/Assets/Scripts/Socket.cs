@@ -55,7 +55,7 @@ public class Socket : MonoBehaviour {
 		horizontal = Math.Min(horizontal, 1.00);
 		horizontal = Math.Max(horizontal, -1.00);
 
-		var data = "{\"horizontal\": " + (horizontal) + ", \"vertical\": " + vertical + "}";
+		var data = "{\"horizontal\": " + (-1 * horizontal) + ", \"vertical\": " + vertical + "}";
 
 		Debug.Log(data);
 

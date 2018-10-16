@@ -575,6 +575,7 @@ GameObject:
   - component: {fileID: 291932661}
   - component: {fileID: 291932664}
   - component: {fileID: 291932663}
+  - component: {fileID: 291932662}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -595,6 +596,20 @@ Transform:
   m_Father: {fileID: 1972756546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+--- !u!114 &291932662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 291932660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2554d715e0e5c93469125737509e008c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  streamAddress: http://192.168.43.86:8080/stream/video.jpeg
+  showFps: 1
+  chunkSize: 4
 --- !u!23 &291932663
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2262,7 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade7cbac7dee4d444805c24ef3b51729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  server: http://192.168.1.5:3000
+  server: http://192.168.43.86:3000
 --- !u!114 &1972756548
 MonoBehaviour:
   m_ObjectHideFlags: 0
